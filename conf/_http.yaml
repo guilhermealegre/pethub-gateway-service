@@ -1,0 +1,32 @@
+host: localhost
+port: 80
+
+userEndpoint:
+  protocol: http
+  host: localhost
+  port: 80
+
+storeEndpoint:
+  protocol: http
+  host: localhost
+  port: 80
+
+customerEndpoint:
+  protocol: http
+  host: localhost
+  port: 80
+
+orderEndpoint:
+  protocol: http
+  host: localhost
+  port: 80
+
+uploaderEndpoint:
+  protocol: http
+  host: localhost
+  port: 80
+
+loggingEndpoint:
+  protocol: http
+  host: localhost
+  port: 80

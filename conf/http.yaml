@@ -1,0 +1,42 @@
+host: localhost
+port: 8100
+
+apiKeys:
+  - testapikey
+
+userEndpoint:
+  protocol: http
+  host: localhost
+  port: 8102
+
+storeEndpoint:
+  protocol: http
+  host: localhost
+  port: 8103
+
+customerEndpoint:
+  protocol: http
+  host: localhost
+  port: 8104
+
+orderEndpoint:
+  protocol: http
+  host: localhost
+  port: 8105
+
+uploaderEndpoint:
+  protocol: http
+  host: localhost
+  port: 8106
+
+mockEndpoint:
+  protocol: http
+  host: localhost
+  port: 8107
+
+additionalConfig:
+  mockEndpoints:
+    /v1/p/user/scanner/login:
+      methods: [POST]
+      enable: false
+

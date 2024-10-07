@@ -1,0 +1,7 @@
+aws:
+  region: eu-central
+  api: http://localhost:9324
+  idAccount: "000000000000"
+maxNumberOfMessages: 10
+visibilityTimeOut: 20
+WaitTimeSeconds: 20

@@ -1,0 +1,9 @@
+enabled: true
+collectorHostPort: localhost:4318
+sensitiveUris:
+  -
+    method: POST
+    uri: /v1/p/auth/scanner/login
+  -
+    method: GET
+    uri: /v1/p/auth/scanner/authorize

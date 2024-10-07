@@ -1,0 +1,9 @@
+server:
+  name:
+  host:
+  port:
+clients:
+  -
+    name: "logging"
+    host: "localhost"
+    port: 50074

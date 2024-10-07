@@ -1,0 +1,18 @@
+path: /tmp/yonderland/log/gateway
+file: yonderland.log
+level: warning
+stackTrace: true
+body: true
+bodyExcludeUris:
+  -
+    method: POST
+    uri: /v1/p/auth/scanner/login
+
+sqs:
+  connection: default
+  queue: logging
+  routingKey: logging-create-log
+output:
+  - file
+  - console
+  - sqs
