@@ -35,7 +35,7 @@ Access to the necessary microservices
 
 ### Installation
 
-1 - Clone the Gateway Repository to your local machine: `git clone git@bitbucket.org:asadventure/be-gateway-service.git`
+1 - Clone the Gateway Repository to your local machine: 
 
 2 - Inside the `conf` folder rename the following configuration files:
 
