@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"strings"
 
-	v1Routes "bitbucket.org/asadventure/be-gateway-service/api/v1/http"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
 	"github.com/go-openapi/runtime/middleware"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	v1Routes "github.com/guilhermealegre/pethub-gateway-service/api/v1/http"
 
 	"github.com/gin-gonic/gin"
 )

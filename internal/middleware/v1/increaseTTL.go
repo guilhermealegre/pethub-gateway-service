@@ -1,10 +1,10 @@
 package v1
 
 import (
-	http2 "bitbucket.org/asadventure/be-gateway-service/api/v1/http"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain/auth"
 	"github.com/gin-gonic/gin"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+
+	http2 "github.com/guilhermealegre/pethub-gateway-service/api/v1/http"
 )
 
 type IncreaseTTLMiddleware struct {

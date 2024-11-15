@@ -1,8 +1,8 @@
 package v1
 
 import (
-	domainLogging "bitbucket.org/asadventure/be-gateway-service/internal/logging/domain/v1"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	domainLogging "github.com/guilhermealegre/pethub-gateway-service/internal/logging/domain/v1"
 )
 
 type Model struct {

@@ -3,8 +3,8 @@ package v1
 import (
 	"net/http"
 
-	"bitbucket.org/asadventure/be-gateway-service/internal/request/config"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	"github.com/guilhermealegre/pethub-gateway-service/internal/request/config"
 )
 
 type IController interface {

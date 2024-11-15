@@ -187,7 +187,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/internal/access/domain/v1"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/internal/access/domain/v1"
     },
     "AccessClearanceResponse": {
       "type": "object",
@@ -197,7 +197,7 @@
           "x-go-name": "Message"
         }
       },
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/api/v1/http/envelope/response"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/api/v1/http/envelope/response"
     },
     "Alive": {
       "type": "object",
@@ -223,7 +223,7 @@
           "x-go-name": "ServerName"
         }
       },
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/internal/alive/domain/v1"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/internal/alive/domain/v1"
     },
     "AliveResponse": {
       "type": "object",
@@ -249,7 +249,7 @@
           "x-go-name": "ServerName"
         }
       },
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/api/v1/http/envelope/response"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/api/v1/http/envelope/response"
     },
     "ErrorResponse": {
       "type": "object",
@@ -340,7 +340,7 @@
           "x-go-name": "Name"
         }
       },
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/internal/alive/domain/v1"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/internal/alive/domain/v1"
     },
     "PublicAliveResponse": {
       "type": "object",
@@ -356,7 +356,7 @@
           "x-go-name": "Name"
         }
       },
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/api/v1/http/envelope/response"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/api/v1/http/envelope/response"
     },
     "Response": {
       "type": "object",
@@ -383,7 +383,7 @@
           "x-go-name": "Success"
         }
       },
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/api/v1/http/envelope/response"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/api/v1/http/envelope/response"
     },
     "SwaggerAccessClearanceResponse": {
       "type": "object",
@@ -401,7 +401,7 @@
         }
       },
       "x-go-name": "swaggerAccessClearanceResponse",
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/api/v1/http/envelope/response"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/api/v1/http/envelope/response"
     },
     "SwaggerAliveResponse": {
       "type": "object",
@@ -419,7 +419,7 @@
         }
       },
       "x-go-name": "swaggerAliveResponse",
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/api/v1/http/envelope/response"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/api/v1/http/envelope/response"
     },
     "SwaggerPublicAliveResponse": {
       "type": "object",
@@ -437,7 +437,7 @@
         }
       },
       "x-go-name": "swaggerPublicAliveResponse",
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/api/v1/http/envelope/response"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/api/v1/http/envelope/response"
     },
     "SwaggerSuccessResponse": {
       "type": "object",
@@ -455,7 +455,7 @@
         }
       },
       "x-go-name": "swaggerSuccessResponse",
-      "x-go-package": "bitbucket.org/asadventure/be-gateway-service/api/v1/http/envelope/response"
+      "x-go-package": "github.com/guilhermealegre/pethub-gateway-service/api/v1/http/envelope/response"
     }
   },
   "securityDefinitions": {

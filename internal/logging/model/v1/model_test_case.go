@@ -2,7 +2,7 @@ package v1
 
 import (
 	"bitbucket.org/asadventure/be-core-lib/test"
-	errorCodes "bitbucket.org/asadventure/be-infrastructure-lib/errors"
+	errorCodes "github.com/guilhermealegre/go-clean-arch-infrastructure-lib/errors"
 )
 
 type TestCase struct {

@@ -3,8 +3,8 @@ package v1
 import (
 	"testing"
 
-	v1Streaming "bitbucket.org/asadventure/be-gateway-service/internal/logging/streaming/v1"
-	"bitbucket.org/asadventure/be-infrastructure-lib/app"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/app"
+	v1Streaming "github.com/guilhermealegre/pethub-gateway-service/internal/logging/streaming/v1"
 	"github.com/stretchr/testify/assert"
 )
 

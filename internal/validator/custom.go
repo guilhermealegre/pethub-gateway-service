@@ -3,8 +3,7 @@ package validator
 import (
 	"strings"
 
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
-	"github.com/go-playground/validator/v10"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
 )
 
 type CustomValidator struct {

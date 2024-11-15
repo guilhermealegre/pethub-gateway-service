@@ -2,7 +2,7 @@ package internal
 
 import (
 	"bitbucket.org/asadventure/be-core-lib/errors"
-	"bitbucket.org/asadventure/be-infrastructure-lib/errors/config"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/errors/config"
 )
 
 // Generic error codes

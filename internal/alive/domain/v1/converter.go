@@ -1,6 +1,6 @@
 package v1
 
-import "bitbucket.org/asadventure/be-gateway-service/api/v1/http/envelope/response"
+import "github.com/guilhermealegre/pethub-gateway-service/api/v1/http/envelope/response"
 
 func (a *Alive) FromDomainToApi() *response.AliveResponse {
 	if a == nil {

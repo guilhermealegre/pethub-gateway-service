@@ -1,13 +1,13 @@
 package v1
 
 import (
-	"bitbucket.org/asadventure/be-gateway-service/api/v1/http"
-	"bitbucket.org/asadventure/be-gateway-service/internal/request/config"
-	v1 "bitbucket.org/asadventure/be-gateway-service/internal/request/domain/v1"
-	user "bitbucket.org/asadventure/be-gateway-service/internal/uploader/domain/v1"
-	"bitbucket.org/asadventure/be-infrastructure-lib/context"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
 	"github.com/gin-gonic/gin"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/context"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	"github.com/guilhermealegre/pethub-gateway-service/api/v1/http"
+	"github.com/guilhermealegre/pethub-gateway-service/internal/request/config"
+	v1 "github.com/guilhermealegre/pethub-gateway-service/internal/request/domain/v1"
+	user "github.com/guilhermealegre/pethub-gateway-service/internal/uploader/domain/v1"
 )
 
 type Controller struct {

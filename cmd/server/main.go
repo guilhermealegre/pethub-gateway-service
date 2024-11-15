@@ -3,39 +3,33 @@ package main
 import (
 	netHttp "net/http"
 
-	grpcInfra "bitbucket.org/asadventure/be-gateway-service/internal/infrastructure/grpc"
-	loggingModel "bitbucket.org/asadventure/be-gateway-service/internal/logging/model/v1"
-	loggingStreaming "bitbucket.org/asadventure/be-gateway-service/internal/logging/streaming/v1"
-	"bitbucket.org/asadventure/be-infrastructure-lib/grpc"
-	"bitbucket.org/asadventure/be-infrastructure-lib/logger/writer"
-	"bitbucket.org/asadventure/be-infrastructure-lib/meter"
 	logging "bitbucket.org/asadventure/be-logging-service/api/v1/grpc/logging_service_logging"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/grpc"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/logger/writer"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/meter"
+	grpcInfra "github.com/guilhermealegre/pethub-gateway-service/internal/infrastructure/grpc"
+	loggingModel "github.com/guilhermealegre/pethub-gateway-service/internal/logging/model/v1"
+	loggingStreaming "github.com/guilhermealegre/pethub-gateway-service/internal/logging/streaming/v1"
 
-	"bitbucket.org/asadventure/be-infrastructure-lib/tracer"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/tracer"
 
-	v1AccessController "bitbucket.org/asadventure/be-gateway-service/internal/access/controller/v1"
-	v1AccessModel "bitbucket.org/asadventure/be-gateway-service/internal/access/model/v1"
-	v1AliveController "bitbucket.org/asadventure/be-gateway-service/internal/alive/controller/v1"
-	v1AliveModel "bitbucket.org/asadventure/be-gateway-service/internal/alive/model/v1"
-	v1CustomerController "bitbucket.org/asadventure/be-gateway-service/internal/customer/controller/v1"
-	v1FallbackController "bitbucket.org/asadventure/be-gateway-service/internal/fallback/controller/v1"
-	v1LoggingController "bitbucket.org/asadventure/be-gateway-service/internal/logging/controller/v1"
-	v1Middleware "bitbucket.org/asadventure/be-gateway-service/internal/middleware/v1"
-	v1OrderController "bitbucket.org/asadventure/be-gateway-service/internal/order/controller/v1"
-	_ "bitbucket.org/asadventure/be-gateway-service/internal/request/config"
-	v1RequestModel "bitbucket.org/asadventure/be-gateway-service/internal/request/model/v1"
-	v1StoreController "bitbucket.org/asadventure/be-gateway-service/internal/store/controller/v1"
-	v1SwaggerController "bitbucket.org/asadventure/be-gateway-service/internal/swagger/controller/v1"
-	v1UploaderController "bitbucket.org/asadventure/be-gateway-service/internal/uploader/controller/v1"
-	v1UserController "bitbucket.org/asadventure/be-gateway-service/internal/user/controller/v1"
+	v1AliveController "github.com/guilhermealegre/pethub-gateway-service/internal/alive/controller/v1"
+	v1AliveModel "github.com/guilhermealegre/pethub-gateway-service/internal/alive/model/v1"
+	v1LoggingController "github.com/guilhermealegre/pethub-gateway-service/internal/logging/controller/v1"
+	v1Middleware "github.com/guilhermealegre/pethub-gateway-service/internal/middleware/v1"
+	_ "github.com/guilhermealegre/pethub-gateway-service/internal/request/config"
+	v1RequestModel "github.com/guilhermealegre/pethub-gateway-service/internal/request/model/v1"
+	v1SwaggerController "github.com/guilhermealegre/pethub-gateway-service/internal/swagger/controller/v1"
+	v1UploaderController "github.com/guilhermealegre/pethub-gateway-service/internal/uploader/controller/v1"
+	v1UserController "github.com/guilhermealegre/pethub-gateway-service/internal/user/controller/v1"
 
 	"os"
 
-	"bitbucket.org/asadventure/be-infrastructure-lib/app"
-	"bitbucket.org/asadventure/be-infrastructure-lib/http"
-	"bitbucket.org/asadventure/be-infrastructure-lib/logger"
-	"bitbucket.org/asadventure/be-infrastructure-lib/sqs"
-	"bitbucket.org/asadventure/be-infrastructure-lib/validator"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/app"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/http"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/logger"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/sqs"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/validator"
 	_ "github.com/lib/pq" // postgres driver
 )
 
@@ -71,14 +65,9 @@ func main() {
 		//controllers
 		WithController(v1SwaggerController.NewController(newApp)).
 		WithController(v1AliveController.NewController(newApp, aliveModel)).
-		WithController(v1AccessController.NewController(newApp, accessModel)).
 		WithController(v1UserController.NewController(newApp, requestModel)).
-		WithController(v1StoreController.NewController(newApp, requestModel)).
-		WithController(v1CustomerController.NewController(newApp, requestModel)).
-		WithController(v1OrderController.NewController(newApp, requestModel)).
 		WithController(v1UploaderController.NewController(newApp, requestModel)).
-		WithController(v1LoggingController.NewController(newApp, requestModel)).
-		WithController(v1FallbackController.NewController(newApp, requestModel))
+		WithController(v1LoggingController.NewController(newApp, requestModel))
 
 	newApp.
 		WithLogger(newLogger).

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"bitbucket.org/asadventure/be-infrastructure-lib/config"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/config"
 )
 
 const (

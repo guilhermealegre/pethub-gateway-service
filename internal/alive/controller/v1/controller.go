@@ -1,11 +1,11 @@
 package v1
 
 import (
-	v1Routes "bitbucket.org/asadventure/be-gateway-service/api/v1/http"
-	alive "bitbucket.org/asadventure/be-gateway-service/internal/alive/domain/v1"
-	"bitbucket.org/asadventure/be-infrastructure-lib/context"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
 	"github.com/gin-gonic/gin"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/context"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	v1Routes "github.com/guilhermealegre/pethub-gateway-service/api/v1/http"
+	alive "github.com/guilhermealegre/pethub-gateway-service/internal/alive/domain/v1"
 )
 
 type Controller struct {

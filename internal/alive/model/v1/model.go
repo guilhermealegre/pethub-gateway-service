@@ -4,9 +4,9 @@ import (
 	"os"
 	"strconv"
 
-	v1 "bitbucket.org/asadventure/be-gateway-service/internal/alive/domain/v1"
+	v1 "github.com/guilhermealegre/pethub-gateway-service/internal/alive/domain/v1"
 
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
 )
 
 const (

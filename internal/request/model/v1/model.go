@@ -11,9 +11,9 @@ import (
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/trace"
 
-	"bitbucket.org/asadventure/be-gateway-service/internal/request/config"
-	requestDomain "bitbucket.org/asadventure/be-gateway-service/internal/request/domain/v1"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	"github.com/guilhermealegre/pethub-gateway-service/internal/request/config"
+	requestDomain "github.com/guilhermealegre/pethub-gateway-service/internal/request/domain/v1"
 )
 
 type Model struct {

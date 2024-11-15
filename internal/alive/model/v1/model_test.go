@@ -5,12 +5,12 @@ import (
 	"strconv"
 	"testing"
 
-	v1 "bitbucket.org/asadventure/be-gateway-service/internal/alive/domain/v1"
-	"bitbucket.org/asadventure/be-infrastructure-lib/app"
-	appConfig "bitbucket.org/asadventure/be-infrastructure-lib/app/config"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
-	httpLib "bitbucket.org/asadventure/be-infrastructure-lib/http"
-	httpConfig "bitbucket.org/asadventure/be-infrastructure-lib/http/config"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/app"
+	appConfig "github.com/guilhermealegre/go-clean-arch-infrastructure-lib/app/config"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	httpLib "github.com/guilhermealegre/go-clean-arch-infrastructure-lib/http"
+	httpConfig "github.com/guilhermealegre/go-clean-arch-infrastructure-lib/http/config"
+	v1 "github.com/guilhermealegre/pethub-gateway-service/internal/alive/domain/v1"
 	"github.com/stretchr/testify/assert"
 )
 

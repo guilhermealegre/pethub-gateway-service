@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
 	"github.com/gin-gonic/gin"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
 )
 
 type IController interface {

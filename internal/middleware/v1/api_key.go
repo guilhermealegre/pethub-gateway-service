@@ -6,11 +6,10 @@ import (
 
 	"bitbucket.org/asadventure/be-core-lib/helpers"
 
-	http2 "bitbucket.org/asadventure/be-gateway-service/api/v1/http"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain/auth"
-	"bitbucket.org/asadventure/be-infrastructure-lib/errors"
 	"github.com/gin-gonic/gin"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/errors"
+	http2 "github.com/guilhermealegre/pethub-gateway-service/api/v1/http"
 )
 
 const (

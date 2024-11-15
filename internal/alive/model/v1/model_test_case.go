@@ -4,8 +4,8 @@ import (
 	"os"
 
 	"bitbucket.org/asadventure/be-core-lib/test"
-	v1 "bitbucket.org/asadventure/be-gateway-service/internal/alive/domain/v1"
-	"bitbucket.org/asadventure/be-infrastructure-lib/context"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/context"
+	v1 "github.com/guilhermealegre/pethub-gateway-service/internal/alive/domain/v1"
 )
 
 type TestCase struct {

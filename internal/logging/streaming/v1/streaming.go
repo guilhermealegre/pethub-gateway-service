@@ -3,9 +3,9 @@ package v1
 import (
 	"context"
 
-	domainLogging "bitbucket.org/asadventure/be-gateway-service/internal/logging/domain/v1"
-	"bitbucket.org/asadventure/be-infrastructure-lib/domain"
 	logging "bitbucket.org/asadventure/be-logging-service/api/v1/grpc/logging_service_logging"
+	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	domainLogging "github.com/guilhermealegre/pethub-gateway-service/internal/logging/domain/v1"
 )
 
 type Streaming struct {
