@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/context"
 	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
+	httpV1 "github.com/guilhermealegre/pethub-gateway-service/api/v1/http"
 	"github.com/guilhermealegre/pethub-gateway-service/internal/request/config"
 	v1 "github.com/guilhermealegre/pethub-gateway-service/internal/request/domain/v1"
 	user "github.com/guilhermealegre/pethub-gateway-service/internal/user/domain/v1"
@@ -22,8 +23,9 @@ func NewController(app domain.IApp, model v1.IModel) user.IController {
 }
 
 func (c *Controller) Register() {
-	_ = c.App().Http().Router()
-
+	engine := c.App().Http().Router()
+	httpV1.GetUserMe.SetRoute(engine, c.Redirect)
+	httpV1.Onboarding.SetRoute(engine, c.Redirect)
 }
 
 func (c *Controller) Redirect(gCtx *gin.Context) {

@@ -23,12 +23,12 @@ import (
 	v1UploaderController "github.com/guilhermealegre/pethub-gateway-service/internal/uploader/controller/v1"
 	v1UserController "github.com/guilhermealegre/pethub-gateway-service/internal/user/controller/v1"
 
+	v1AuthContoller "github.com/guilhermealegre/pethub-gateway-service/internal/auth/controller/v1"
 	"os"
 
 	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/app"
 	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/http"
 	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/logger"
-	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/sqs"
 	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/validator"
 	_ "github.com/lib/pq" // postgres driver
 )
@@ -41,19 +41,16 @@ func main() {
 		AddFieldValidators().
 		AddStructValidators()
 	newGrpc := grpc.New(newApp, nil)
+	newTracer := tracer.New(newApp, nil)
+	newMeter := meter.New(newApp, nil)
 
 	loggingGrpcClient := newGrpc.GetClient(grpcInfra.LoggingClient)
 	loggingClient := logging.NewLoggingClient(loggingGrpcClient)
 	loggingModel := loggingModel.NewModel(newApp, loggingStreaming.NewStreaming(newApp, loggingClient))
 	newLogger := logger.New(newApp, nil, writer.NewGeneric(loggingModel.Log, nil))
 
-	newTracer := tracer.New(newApp, nil)
-	newMeter := meter.New(newApp, nil)
-	newSQS := sqs.New(newApp, nil)
-
 	// models
 	aliveModel := v1AliveModel.NewModel(newApp)
-	accessModel := v1AccessModel.NewModel(newApp)
 	requestModel := v1RequestModel.NewModel(newApp, netHttp.DefaultClient)
 
 	newHttp.
@@ -65,18 +62,18 @@ func main() {
 		//controllers
 		WithController(v1SwaggerController.NewController(newApp)).
 		WithController(v1AliveController.NewController(newApp, aliveModel)).
+		WithController(v1AuthContoller.NewController(newApp, requestModel)).
 		WithController(v1UserController.NewController(newApp, requestModel)).
 		WithController(v1UploaderController.NewController(newApp, requestModel)).
 		WithController(v1LoggingController.NewController(newApp, requestModel))
 
 	newApp.
 		WithLogger(newLogger).
-		WithSQS(newSQS).
 		WithTracer(newTracer).
 		WithMeter(newMeter).
 		WithValidator(newValidation).
-		WithHttp(newHttp).
-		WithGrpc(newGrpc)
+		WithGrpc(newGrpc).
+		WithHttp(newHttp)
 
 	// start app
 	if err := newApp.Start(); err != nil {

@@ -3,6 +3,7 @@ package v1
 import (
 	"encoding/json"
 	"fmt"
+	dCtx "github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain/context"
 	"io"
 	"net/http"
 	"net/url"
@@ -28,7 +29,7 @@ func NewModel(app domain.IApp, client requestDomain.HttpClient) requestDomain.IM
 	}
 }
 
-func (m *Model) Redirect(ctx domain.IContext, serviceEndpoint *config.Endpoint) (*http.Response, []byte) {
+func (m *Model) Redirect(ctx dCtx.IContext, serviceEndpoint *config.Endpoint) (*http.Response, []byte) {
 	var err error
 	ctx.Request().URL, err = m.prepareRedirectUrl(ctx.Request(), serviceEndpoint)
 	if err != nil {

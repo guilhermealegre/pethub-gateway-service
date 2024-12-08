@@ -1,11 +1,12 @@
 package http
 
 import (
+	infra "github.com/guilhermealegre/go-clean-arch-infrastructure-lib/http"
 	"net/http"
 )
 
 var (
-	GroupV1  = infra.NewGroup("v1")
+	GroupV1  = infra.NewGroup("api").Group("v1")
 	GroupV1P = GroupV1.Group("p")
 
 	// Gateway
@@ -18,8 +19,23 @@ var (
 	SwaggerSwagger       = GroupV1Documentation.NewEndpoint("/:service/swagger", http.MethodGet)
 	SwaggerJson          = GroupV1Documentation.NewEndpoint("/:service/swagger.json", http.MethodGet)
 
-	// Fallback
-	PublicAlive = GroupV1P.NewEndpoint("/alive/:service", http.MethodGet)
+	// Auth
+	GroupV1Auth                         = GroupV1.Group("auth")
+	GroupV1PAuth                        = GroupV1P.Group("auth")
+	GetTokenInternalProviders           = GroupV1PAuth.NewEndpoint("/:provider/login", http.MethodPost)
+	LoginByExternalProvider             = GroupV1PAuth.NewEndpoint("/:provider/login", http.MethodGet)
+	GetTokenByCallBackExternalProviders = GroupV1PAuth.NewEndpoint("/:provider/callback", http.MethodGet)
+	SignupInternalProviders             = GroupV1PAuth.NewEndpoint("/:provider/signup", http.MethodPost)
+	SignupInternalProvidersConfirmation = GroupV1PAuth.NewEndpoint("/:provider/signup/confirmation", http.MethodPost)
+	CreatePassword                      = GroupV1Auth.NewEndpoint("/signup/create-password", http.MethodPost)
+	Logout                              = GroupV1PAuth.NewEndpoint("/logout", http.MethodPost)
+	Refresh                             = GroupV1PAuth.NewEndpoint("/refresh-token", http.MethodPost)
+
+	// User
+	GroupV1User  = GroupV1.Group("user")
+	GroupV1PUser = GroupV1P.Group("user")
+	GetUserMe    = GroupV1User.NewEndpoint("/me", http.MethodGet)
+	Onboarding   = GroupV1PUser.NewEndpoint("/onboarding", http.MethodPost)
 
 	// Uploader
 	GroupV1Uploader  = GroupV1.Group("uploader")

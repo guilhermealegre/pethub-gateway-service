@@ -15,35 +15,16 @@ type Endpoint struct {
 }
 
 type serviceEndpoints struct {
-	UserEndpoint     *Endpoint `yaml:"userEndpoint"`
-	StoreEndpoint    *Endpoint `yaml:"storeEndpoint"`
-	CustomerEndpoint *Endpoint `yaml:"customerEndpoint"`
-	OrderEndpoint    *Endpoint `yaml:"orderEndpoint"`
-	UploaderEndpoint *Endpoint `yaml:"uploaderEndpoint"`
-	LoggingEndpoint  *Endpoint `yaml:"loggingEndpoint"`
+	AuthEndpoint         *Endpoint `yaml:"authEndpoint"`
+	UserEndpoint         *Endpoint `yaml:"userEndpoint"`
+	BookingEndpoint      *Endpoint `yaml:"bookingEndpoint"`
+	NotificationEndpoint *Endpoint `yaml:"notificationEndpoint"`
+	UploaderEndpoint     *Endpoint `yaml:"uploaderEndpoint"`
+	LoggingEndpoint      *Endpoint `yaml:"loggingEndpoint"`
 }
 
 var ServiceEndpoints serviceEndpoints
 
 func init() {
 	_ = config.Load(configFile, &ServiceEndpoints)
-}
-
-func GetEndpoint(service string) *Endpoint {
-	switch service {
-	case "auth":
-		return ServiceEndpoints.UserEndpoint
-	case "store":
-		return ServiceEndpoints.StoreEndpoint
-	case "customer":
-		return ServiceEndpoints.CustomerEndpoint
-	case "order":
-		return ServiceEndpoints.OrderEndpoint
-	case "uploader":
-		return ServiceEndpoints.UploaderEndpoint
-	case "logging":
-		return ServiceEndpoints.LoggingEndpoint
-	}
-
-	return nil
 }

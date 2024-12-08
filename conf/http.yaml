@@ -1,42 +1,32 @@
 host: localhost
-port: 8100
+port: 9000
 
-apiKeys:
-  - testapikey
+authEndpoint:
+  protocol: http
+  host: localhost
+  port: 9001
 
 userEndpoint:
   protocol: http
   host: localhost
-  port: 8102
+  port: 9002
 
-storeEndpoint:
+bookingEndpoint:
   protocol: http
   host: localhost
-  port: 8103
-
-customerEndpoint:
-  protocol: http
-  host: localhost
-  port: 8104
-
-orderEndpoint:
-  protocol: http
-  host: localhost
-  port: 8105
+  port: 9003
 
 uploaderEndpoint:
   protocol: http
   host: localhost
-  port: 8106
+  port: 9004
 
-mockEndpoint:
+loggingEndpoint:
   protocol: http
   host: localhost
-  port: 8107
+  port: 9005
 
-additionalConfig:
-  mockEndpoints:
-    /v1/p/user/scanner/login:
-      methods: [POST]
-      enable: false
-
+notificationEndpoint:
+  protocol: http
+  host: localhost
+  port: 9006

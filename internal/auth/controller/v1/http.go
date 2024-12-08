@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/context"
 	"github.com/guilhermealegre/go-clean-arch-infrastructure-lib/domain"
-	v1Auth "github.com/guilhermealegre/pethub-gateway-service/internal/auth/domain/v1"
+	httpV1 "github.com/guilhermealegre/pethub-gateway-service/api/v1/http"
 	"github.com/guilhermealegre/pethub-gateway-service/internal/request/config"
 	v1 "github.com/guilhermealegre/pethub-gateway-service/internal/request/domain/v1"
 )
@@ -14,7 +14,7 @@ type Controller struct {
 	model v1.IModel
 }
 
-func NewController(app domain.IApp, model v1.IModel) v1Auth.IController {
+func NewController(app domain.IApp, model v1.IModel) v1.IController {
 	return &Controller{
 		DefaultController: domain.NewDefaultController(app),
 		model:             model,
@@ -22,12 +22,21 @@ func NewController(app domain.IApp, model v1.IModel) v1Auth.IController {
 }
 
 func (c *Controller) Register() {
-	_ = c.App().Http().Router()
+	engine := c.App().Http().Router()
+
+	httpV1.GetTokenInternalProviders.SetRoute(engine, c.Redirect)
+	httpV1.LoginByExternalProvider.SetRoute(engine, c.Redirect)
+	httpV1.GetTokenByCallBackExternalProviders.SetRoute(engine, c.Redirect)
+	httpV1.SignupInternalProviders.SetRoute(engine, c.Redirect)
+	httpV1.SignupInternalProvidersConfirmation.SetRoute(engine, c.Redirect)
+	httpV1.CreatePassword.SetRoute(engine, c.Redirect)
+	httpV1.Logout.SetRoute(engine, c.Redirect)
+	httpV1.Refresh.SetRoute(engine, c.Redirect)
 
 }
 
 func (c *Controller) Redirect(gCtx *gin.Context) {
 	ctx := context.NewContext(gCtx)
-	response, body := c.model.Redirect(ctx, config.ServiceEndpoints.UserEndpoint)
+	response, body := c.model.Redirect(ctx, config.ServiceEndpoints.AuthEndpoint)
 	ctx.Data(response.StatusCode, response.Header.Get("Content-Type"), body)
 }

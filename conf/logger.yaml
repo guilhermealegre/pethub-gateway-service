@@ -17,4 +17,3 @@ sqs:
 output:
   - file
   - console
-  - sqs
